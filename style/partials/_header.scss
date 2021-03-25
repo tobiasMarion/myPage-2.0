@@ -1,0 +1,91 @@
+header {
+  width: 100%;
+  @include flexComponent(row, center, space-between);
+  height: 4rem;
+  padding: 0.5rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+
+  .logo {
+    margin-left: 1rem;
+    height: 85%;
+    @include flexComponent(row, center, flex-start);
+
+    img {
+      height: 100%;
+    }
+
+    span {
+      margin-left: 2rem;
+      @include text(1rem, white, 700);
+    }
+  }
+
+  .hamburguer {
+    @include flexComponent(row, center, center);
+    cursor: pointer;
+    padding: 1rem;
+
+    span {
+      width: 3rem;
+      height: 0.35rem;
+      background: white;
+      border-radius: 4px;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -1rem;
+        right: 0;
+        width: 2rem;
+        height: 0.35rem;
+        background: white;
+        border-radius: 4px;
+      }
+    }
+  }
+}
+
+.mobile-nav {
+  position: fixed;
+  z-index: 4;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  padding: 35% 0;
+  overflow: hidden;
+  clip-path: circle(0 at 90% 10%);
+
+  ul {
+    width: 100%;
+    height: 100%;
+    @include flexComponent(column, center, space-evenly);
+
+    li a {
+      padding: 1rem;
+      margin: 5rem;
+      @include text(3rem, white, 400);
+      position: relative;
+
+      &::after {
+        content: "";
+        width: 0%;
+        height: 0.5rem;
+        background: $linearBlueGradient;
+        position: absolute;
+        bottom: 0rem;
+        left: 0;
+        border-radius: 0.5rem;
+        transition: 0.3s;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+    }
+  }
+}

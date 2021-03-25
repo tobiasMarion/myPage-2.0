@@ -1,0 +1,101 @@
+// Reset
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+// REM System
+@media (max-width: 1080px) {
+  html {
+    font-size: 93.75%;
+  }
+}
+
+@media (max-width: 720px) {
+  html {
+    font-size: 87.5%;
+  }
+}
+
+// Variables and Function
+$lightGray: #666969;
+$linearBlueGradient: linear-gradient(87.52deg, #2b37e4 0%, #0b69f2 100%);
+$radialBlackGradient: radial-gradient(
+  50% 50% at 50% 50%,
+  #181818 0%,
+  #0e0e0e 100%
+);
+
+@mixin text($size, $color, $weight) {
+  font-family: "Raleway", sans-serif;
+  font-size: $size;
+  color: $color;
+  font-weight: $weight;
+}
+
+@mixin flexComponent($direction, $align, $justify) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin center() {
+  display: grid;
+  place-items: center;
+}
+
+@mixin gradientText {
+  background: $linearBlueGradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.container {
+  min-height: 100vh;
+  height: min-content;
+  width: 100%;
+  background: $radialBlackGradient;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+*[data-responsive="desktop"] {
+  @media (max-width: 720px) {
+    display: none !important;
+  }
+}
+
+*[data-responsive="mobile"] {
+  @media (min-width: 720px) {
+    display: none !important;
+  }
+}
+
+svg.bg {
+  position: absolute;
+  opacity: 1;
+  width: 110%;
+  top: 0;
+  left: -5%;
+  z-index: 0;
+}
+
+i.gradient-text {
+  @include gradientText;
+}
+
+@import "partials/_header.scss";
+@import "partials/_sections.scss";

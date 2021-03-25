@@ -1,0 +1,61 @@
+main {
+  width: 100%;
+}
+
+section {
+  position: relative;
+  height: min-content;
+  width: 100%;
+  display: block;
+}
+
+#hero {
+  height: 100vh;
+  overflow: hidden;
+  padding: 4rem 0 6rem;
+  @include flexComponent(column, center, flex-end);
+
+  .content {
+    height: 70%;
+    z-index: 1;
+    width: 90%;
+    @include center;
+
+    .strong {
+      width: 100%;
+    }
+
+    .buttons {
+      width: 80%;
+
+      a {
+        display: block;
+        text-align: center;
+        padding: 1.5rem 0;
+        width: 100%;
+        margin-top: 1rem;
+        border-radius: 1rem;
+        @include text(1.4rem, white, 500);
+
+        &:first-child {
+          background: $linearBlueGradient;
+        }
+
+        &:last-child {
+            background: transparent;
+            border: 2px solid #1b50eb;
+        }
+      }
+    }
+  }
+
+  .arrow-down {
+    width: 20px;
+    height: auto;
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    z-index: 6;
+    transform: translateX(-50%);
+  }
+}
